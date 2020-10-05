@@ -33,7 +33,7 @@ void printList(Node* p)
     cout<<endl;
 }
 
-void insertion(int value, Node* head)
+void insertFront(int value, Node* head)
 {
     Node* p = new Node(value);
     p->next = head;
@@ -53,5 +53,5 @@ int main()
 
     int value;
     cin>>value;
-    insertion(value,head);
+    insertFront(value,head);
 }
