@@ -16,6 +16,7 @@ class Node{
 
 void printList(Node* head){
     Node* p = head;
+    cout<<"Linked List is: ";
     while(p!=NULL){
         if(p->next!=NULL)
             cout<<p->data<<" -> ";

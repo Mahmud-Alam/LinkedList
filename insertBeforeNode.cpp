@@ -34,11 +34,12 @@ int main(){
     printList(head);
 
     int key,value;
-    cout<<"Input a key  : ";
+    cout<<endl<<"Input a key  : ";
     cin>>key;
     cout<<"Input a value: ";
     cin>>value;
     Node* node = insertBeforeNode(key,value,head);
+    cout<<endl;
     if(node==NULL)
         cout<<"Key is not found!"<<endl;
     else
