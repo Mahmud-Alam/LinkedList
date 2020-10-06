@@ -13,6 +13,10 @@ class Node{
     }
     ~Node();
 };
+
+//________________Display fucntion___________________
+
+
 void displayList(Node* head){
     cout<<endl<<"Linked List is: ";
     while(head!=NULL){
@@ -25,7 +29,11 @@ void displayList(Node* head){
     }
     cout<<endl<<endl;
 }
-Node* createNode(int value,Node* head){
+
+//_________________Create Linked List Function__________________
+
+
+Node* createLinkedList(int value,Node* head){
     Node* node = new Node(value);
     Node* p = head;
     if(p==NULL){

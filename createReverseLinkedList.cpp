@@ -13,7 +13,7 @@ class Node{
     }
     ~Node();
 };
-void printList(Node* head){
+void displayList(Node* head){
     cout<<endl<<"Linked List is: ";
     while(head!=NULL){
         if(head->next!=NULL)
@@ -25,33 +25,34 @@ void printList(Node* head){
     }
     cout<<endl<<endl;
 }
-Node* createNode(int value,Node* head){
+
+//_________________Create Reverse Linked List Function__________________
+
+
+Node* createReverseLinkedList(int value,Node* head){
     Node* node = new Node(value);
-    Node* p = head;
-    if(p==NULL){
-        p=node;
-        return p;
+    if(head==NULL){
+        head=node;
     }
     else{
-        while(p->next!=NULL){
-            p = p->next;
-        }
-        p->next = node;
+        node->next= head;
     }
-    return head;
+    return node;
 }
 int main(){
     int v;
     Node* head = NULL;
+    Node* newNode = NULL;
     while(1){
         cout<<"Input a value(1024 to stop): ";
         cin>>v;
         if(v==1024)
             break;
         else{
-            Node* newNode = createNode(v,head);
+            newNode = createReverseLinkedList(v,head);
             head = newNode;
-            printList(head);
+            displayList(head);
         }
     }
 }
+
