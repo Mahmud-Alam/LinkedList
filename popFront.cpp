@@ -2,6 +2,8 @@
 #include"LinkedList.h"
 using namespace std;
 
+//_________Pop front function___________
+
 Node* popFront(Node* head){
     Node* p = head, *t;
     if(p==NULL){
