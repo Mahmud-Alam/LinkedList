@@ -2,6 +2,9 @@
 #include"nodeInt.h"
 using namespace std;
 
+//________________Find Node Function______________
+
+
 Node* findNode(int KEY, Node* head){
     Node* key = new Node(KEY);
     Node* p = head;
@@ -21,7 +24,11 @@ Node* findNode(int KEY, Node* head){
     return NULL;
 }
 
-void insertAfterNode(int VALUE, Node* head){
+
+//_________________Add After Node Function___________________
+
+
+void addAfterNode(int VALUE, Node* head){
     Node* value = new Node(VALUE);
     value->next = head->next;
     head->next = value;
@@ -33,7 +40,7 @@ int main(){
     head->next = head2;
     head2->next = head3;
 
-    printList(head);
+    displayList(head);
 
     int key,value;
     cout<<endl<<"Input a key  : ";
@@ -46,8 +53,8 @@ int main(){
     else{
         cout<<"Input a value: ";
         cin>>value;
-        insertAfterNode(value, finding);
+        addAfterNode(value, finding);
 
-        printList(head);
+        displayList(head);
     }
 }
