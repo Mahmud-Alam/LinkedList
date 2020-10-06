@@ -14,7 +14,7 @@ public:
     ~Node();
 };
 
-void printList(Node* p)
+void displayList(Node* p)
 {
     while(p!=NULL)
     {
@@ -33,12 +33,14 @@ void printList(Node* p)
     cout<<endl;
 }
 
-void insertFront(int value, Node* head)
+//_______Push front function____________
+
+void pushFront(int value, Node* head)
 {
     Node* p = new Node(value);
     p->next = head;
 
-    printList(p);
+    displayList(p);
 }
 
 int main()
@@ -49,9 +51,9 @@ int main()
     head->next = head2;
     head2->next = head3;
 
-    printList(head);
+    displayList(head);
 
     int value;
     cin>>value;
-    insertFront(value,head);
+    pushFront(value,head);
 }
