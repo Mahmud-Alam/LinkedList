@@ -32,7 +32,7 @@ int main(){
         if(v==1024)
             break;
         else{
-            Node* newNode = createNode(v,head);
+            Node* newNode = createLinkedList(v,head);
             head = newNode;
             displayList(head);
         }
