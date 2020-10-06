@@ -13,7 +13,7 @@ class Node{
     }
     ~Node();
 };
-void printList(Node* head){
+void displayList(Node* head){
     cout<<endl<<"Linked List is: ";
     while(head!=NULL){
         if(head->next!=NULL)
