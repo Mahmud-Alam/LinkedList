@@ -2,7 +2,9 @@
 #include"nodeInt.h"
 using namespace std;
 
-Node* insertBeforeNode(int KEY, int VALUE, Node* head){
+//________________Add Before Node Function____________________
+
+Node* addBeforeNode(int KEY, int VALUE, Node* head){
     Node* key = new Node(KEY);
     Node* value = new Node(VALUE);
     Node* h = head;
@@ -31,17 +33,17 @@ int main(){
     head->next = head2;
     head2->next = head3;
 
-    printList(head);
+    displayList(head);
 
     int key,value;
     cout<<endl<<"Input a key  : ";
     cin>>key;
     cout<<"Input a value: ";
     cin>>value;
-    Node* node = insertBeforeNode(key,value,head);
+    Node* node = addBeforeNode(key,value,head);
     cout<<endl;
     if(node==NULL)
         cout<<"Key is not found!"<<endl;
     else
-        printList(node);
+        displayList(node);
 }
