@@ -22,9 +22,9 @@ Node* popBefore(int KEY, Node* head){
     }
     else if(p->next->next==NULL){
             if(p->next->data==key->data){
-                Node* temp = p->next;
+                Node* t = p->next;
                 free(p);
-                return temp;
+                return t;
             }
             else{
                 cout<<endl<<"Key is not found!!!"<<endl;
@@ -33,14 +33,14 @@ Node* popBefore(int KEY, Node* head){
     }
     else if(p->next->next->next==NULL){
             if(p->next->data==key->data){
-                Node* temp = p->next;
+                Node* t = p->next;
                 free(p);
-                return temp;
+                return t;
             }
             else if(p->next->next->data==key->data){
-                Node* temp = p->next->next;
+                Node* t = p->next->next;
                 free(p->next);
-                p->next = temp;
+                p->next = t;
                 return p;
             }
             else{
@@ -51,23 +51,23 @@ Node* popBefore(int KEY, Node* head){
     else{
         while(p->next->next->next!=NULL){
             if(p->next->data==key->data){
-                Node* temp = p->next;
+                Node* t = p->next;
                 free(p);
                 cout<<"____________________1st if";
-                return temp;
+                return t;
             }
             else if(p->next->next->data==key->data){
-                Node* temp = p->next->next;
+                Node* t = p->next->next;
                 free(p->next);
-                p->next = temp;
+                p->next = t;
                                 cout<<"____________________2nd if";
 
                 return p;
             }
             else if(p->next->next->next->data==key->data){
-                Node* temp = p->next->next->next;
+                Node* t = p->next->next->next;
                 free(p->next->next);
-                p->next->next = temp;
+                p->next->next = t;
                                 cout<<"____________________3rd if";
 
                 return head;
