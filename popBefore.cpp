@@ -39,7 +39,7 @@ Node* popBefore(int KEY, Node* head){
             }
             else if(p->next->next->data==key->data){
                 Node* temp = p->next->next;
-                //free(p->next);
+                free(p->next);
                 p->next = temp;
                 return p;
             }
@@ -49,25 +49,30 @@ Node* popBefore(int KEY, Node* head){
             }
     }
     else{
-        while(p->next->next!=NULL){
+        while(p->next->next->next!=NULL){
             if(p->next->data==key->data){
                 Node* temp = p->next;
                 free(p);
                 return temp;
             }
+            else if(p->next->next->data==key->data){
+                Node* temp = p->next->next;
+                free(p->next);
+                p->next = temp;
+                return p;
+            }
+            else if(p->next->next->next->data==key->data){
+                Node* temp = p->next->next->next;
+                free(p->next->next);
+                p->next->next = temp;
+                return p;
+            }
             else{
                 p = p->next;
             }
         }
-        if(p->next->data==key->data){
-            Node* temp = p->next;
-            free(p);
-            return temp;
-        }
-        else{
-            cout<<endl<<"Key is not found!!!"<<endl;
-            return p;
-        }
+        cout<<endl<<"Key is not found!!!"<<endl;
+        return p;
     }
 }
 int main(){
@@ -88,13 +93,15 @@ int main(){
         cin>>v;
         if(v==0)
             break;
+        else if(v==1){
+                cout<<endl<<"Input a key: ";
+                cin>>key;
+                Node* popHead = popBefore(key,head);
+                if(popHead!=NULL)
+                    displayList(popHead);
+        }
         else{
-            cout<<endl<<"Input a key: ";
-            cin>>key;
-            Node* popHead = popBefore(key,head);
-            if(popHead!=NULL)
-                displayList(popHead);
-           // displayList(head);
+            cout<<endl<<"Wrong keyword! Type again."<<endl;
         }
     }
 }
