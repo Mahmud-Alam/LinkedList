@@ -14,7 +14,7 @@ class Node{
     ~Node();
 };
 
-void printList(Node* head){
+void displayList(Node* head){
     Node* p = head;
     cout<<"Linked List is: ";
     while(p!=NULL){

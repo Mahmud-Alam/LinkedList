@@ -25,13 +25,13 @@ int main(){
     int v;
     Node* head = NULL;
     while(1){
-        cout<<"Input value: ";cin>>v;
+        cout<<"Input value(1024 to stop): ";cin>>v;
         if(v==1024)
             break;
         else{
             Node* newNode = createNode(v,head);
             head = newNode;
-            printList(head);
+            displayList(head);
         }
     }
     int key;
@@ -47,7 +47,7 @@ int main(){
                 head = NULL;
             }
             else if(popHead!=NULL){
-                printList(head);
+                displayList(head);
             }
         }
         else{

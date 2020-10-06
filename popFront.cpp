@@ -30,7 +30,7 @@ int main(){
         else{
             Node* newNode = createNode(v,head);
             head = newNode;
-            printList(head);
+            displayList(head);
         }
     }
     Node* node = popFront(head);
@@ -38,6 +38,6 @@ int main(){
         cout<<"List is empty!!!"<<endl;
     }
     else{
-            printList(node);
+            displayList(node);
     }
 }
