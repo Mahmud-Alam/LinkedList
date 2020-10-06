@@ -2,9 +2,9 @@
 #include"nodeInt.h"
 using namespace std;
 
-//________________Add Before Node Function____________________
+//________________Add Before Function____________________
 
-Node* addBeforeNode(int KEY, int VALUE, Node* head){
+Node* addBefore(int KEY, int VALUE, Node* head){
     Node* key = new Node(KEY);
     Node* value = new Node(VALUE);
     Node* h = head;
@@ -40,7 +40,7 @@ int main(){
     cin>>key;
     cout<<"Input a value: ";
     cin>>value;
-    Node* node = addBeforeNode(key,value,head);
+    Node* node = addBefore(key,value,head);
     cout<<endl;
     if(node==NULL)
         cout<<"Key is not found!"<<endl;
