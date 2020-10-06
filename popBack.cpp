@@ -1,6 +1,9 @@
 #include<bits/stdc++.h>
 #include"LinkedList.h"
 using namespace std;
+
+//__________Pop back fucntion___________
+
 Node* popBack(Node* head){
     Node* p = head;
     if(p==NULL){

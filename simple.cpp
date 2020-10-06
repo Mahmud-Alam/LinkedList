@@ -9,7 +9,7 @@ class Node{
         this->next = NULL;
     }
 };
-void printList(Node* head){
+void displayList(Node* head){
     Node* p = head;
     while(p!=NULL){
         cout<<p->value<<" ";
@@ -25,5 +25,5 @@ int main(){
     head->next = head2;
     head2->next = head3;
 
-    printList(head);
+    displayList(head);
 }
