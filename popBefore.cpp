@@ -2,7 +2,15 @@
 #include"LinkedList.h"
 using namespace std;
 
-//_______________Pop Before Function________________
+//_______________Pop Before Function________________//
+//___________________ERROR SOlved___________________//
+// ERROR: the error was occur, when head pop and the new return head, had not placed right.
+//        Every time, the old head, took place. but actually old head was popped(removed),
+//        so old head store some garbage value, which is took place as head. and those garbage values were repeated
+//        Thats why, full linked list had lost and only one element took place........//
+
+// SOLUTION: in main, return newhead set as head. [head = newHead;]
+//           This is how, old head replaced by new return head, and looped is worked now with the replace new head.
 
 
 Node* popBefore(int KEY, Node* head){
@@ -96,10 +104,10 @@ int main(){
         else if(v==1){
                 cout<<endl<<"Input a key: ";
                 cin>>key;
-                Node* popHead = popBefore(key,head);
-                if(popHead!=NULL)
-                    displayList(popHead);
-                    //displayList(head);
+                Node* newHead = popBefore(key,head);        //ERROR_point________________________________________________________________________
+                head = newHead;                            //old head is replaced by  new return newHead, so loop is worked with the newHead now.
+                if(head!=NULL)
+                    displayList(head);
         }
         else{
             cout<<endl<<"Wrong keyword! Type again."<<endl;
