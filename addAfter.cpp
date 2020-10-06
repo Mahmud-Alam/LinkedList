@@ -25,10 +25,10 @@ Node* findNode(int KEY, Node* head){
 }
 
 
-//_________________Add After Node Function___________________
+//_________________Add After Function___________________
 
 
-void addAfterNode(int VALUE, Node* head){
+void addAfter(int VALUE, Node* head){
     Node* value = new Node(VALUE);
     value->next = head->next;
     head->next = value;
@@ -53,7 +53,7 @@ int main(){
     else{
         cout<<"Input a value: ";
         cin>>value;
-        addAfterNode(value, finding);
+        addAfter(value, finding);
 
         displayList(head);
     }
