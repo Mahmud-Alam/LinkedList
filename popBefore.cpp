@@ -59,7 +59,7 @@ Node* popBefore(int KEY, Node* head){
                 Node* t = p->next->next;
                 free(p->next);
                 p->next = t;
-                return p;
+                return head;
             }
             else if(p->next->next->next->data==key->data){
                 Node* t = p->next->next->next;
