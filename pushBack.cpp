@@ -10,7 +10,7 @@ class Node{
     }
     ~Node();
 };
-void printList(Node* p){
+void displayList(Node* p){
     while(p!=NULL){
         if(p->next!=NULL)
             cout<<p->data<<" -> ";
@@ -21,7 +21,12 @@ void printList(Node* p){
     }
     cout<<endl;
 }
-Node* insertBack(int value,Node* head){
+
+
+//________________Push Back Function_____________
+
+
+Node* pushBack(int value,Node* head){
     Node* node = new Node(value);
     Node* p = head;
     while(p->next!=NULL){
@@ -36,10 +41,10 @@ int main(){
     Node* head3 = new Node(2);
     head->next = head2;
     head2->next = head3;
-    printList(head);
+    displayList(head);
 
     int value;
     cin>>value;
-    Node* h = insertBack(value, head);
-    printList(h);
+    Node* h = pushBack(value, head);
+    displayList(h);
 }
