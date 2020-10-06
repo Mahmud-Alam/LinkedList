@@ -53,21 +53,28 @@ Node* popBefore(int KEY, Node* head){
             if(p->next->data==key->data){
                 Node* temp = p->next;
                 free(p);
+                cout<<"____________________1st if";
                 return temp;
             }
             else if(p->next->next->data==key->data){
                 Node* temp = p->next->next;
                 free(p->next);
                 p->next = temp;
+                                cout<<"____________________2nd if";
+
                 return p;
             }
             else if(p->next->next->next->data==key->data){
                 Node* temp = p->next->next->next;
                 free(p->next->next);
                 p->next->next = temp;
-                return p;
+                                cout<<"____________________3rd if";
+
+                return head;
             }
             else{
+                                    cout<<"____________________4thh if";
+
                 p = p->next;
             }
         }
@@ -99,6 +106,7 @@ int main(){
                 Node* popHead = popBefore(key,head);
                 if(popHead!=NULL)
                     displayList(popHead);
+                    displayList(head);
         }
         else{
             cout<<endl<<"Wrong keyword! Type again."<<endl;
