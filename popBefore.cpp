@@ -31,6 +31,23 @@ Node* popBefore(int KEY, Node* head){
                 return p;
             }
     }
+    else if(p->next->next->next==NULL){
+            if(p->next->data==key->data){
+                Node* temp = p->next;
+                free(p);
+                return temp;
+            }
+            else if(p->next->next->data==key->data){
+                Node* temp = p->next->next;
+                //free(p->next);
+                p->next = temp;
+                return p;
+            }
+            else{
+                cout<<endl<<"Key is not found!!!"<<endl;
+                return p;
+            }
+    }
     else{
         while(p->next->next!=NULL){
             if(p->next->data==key->data){
