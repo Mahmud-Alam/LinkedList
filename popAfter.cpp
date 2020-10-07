@@ -15,13 +15,17 @@ class Node{
     ~Node();
 };
 
-Node* createNode(int value, Node* head){
+Node* createLinkedList(int value, Node* head){
     Node* newNode = new Node(value);
+    Node* p = head;
     if(head==NULL){
         head = newNode;
     }
     else{
-        head->next = newNode;
+        while(p->next!=NULL){
+            p = p->next;
+        }
+        p->next = newNode;
     }
     return head;
 }
@@ -32,12 +36,29 @@ void displayList(Node* head){
         cout<<endl<<"List is empty!"<<endl;
     }
     else{
+        cout<<endl<<"LinkedList is: ";
         while(p!=NULL){
             if(p->next==NULL)
-                cout<<"LinkedList is: "<<p->data;
+                cout<<p->data;
             else
-                cout<<"LinkedList is: "<<p->data<<" -> ";
+                cout<<p->data<<" -> ";
+            p = p->next;
         }
         cout<<endl;
+    }
+}
+
+int main(){
+    Node* head = NULL;
+    int v;
+    while(1){
+        cout<<endl<<"Input a value(1024 to stop) : ";cin>>v;
+        if(v==1024)
+            break;
+        else{
+            Node* newNode = createLinkedList(v,head);
+            head = newNode;
+            displayList(head);
+        }
     }
 }
