@@ -7,7 +7,17 @@ using namespace std;
 
 
 int searchPosition(int key, Node* head){
-
+    int c=1;
+    while(head!=NULL){
+        if(head->data==key){
+            break;
+        }
+        else{
+            head = head->next;
+            c++;
+        }
+    }
+    return c;
 }
 
 
@@ -53,10 +63,16 @@ int main(){
             else if(v==1){
                 cout<<endl<<"Input a Key: ";cin>>key;
                 bool val = searchNode(key,head);
-                if(val==true)
-                    cout<<endl<<"Key is found!"<<endl;
-                else
+                if(val==true){
+                    cout<<endl<<"Key is found!";
+                    int pos = searchPosition(key, head);
+                    cout<<endl<<"Key's Position is: "<<pos<<endl;
+                    displayList(head);
+                }
+                else{
                     cout<<endl<<"Key is not found!"<<endl;
+                    displayList(head);
+                }
             }
             else
                 cout<<endl<<"Wrong keyword! Type again."<<endl;
