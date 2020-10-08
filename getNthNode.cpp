@@ -7,18 +7,17 @@ int getNthNode(int index, Node* head){
     Node* p = head;
     int c=0;
     if(p->next==NULL){
-        if(index == 1)
+        if(index == c)
             return p->data;
         else return -1;
     }
     else{
         while(p->next!=NULL){
-            c++;
             if(c == index)
                 return p->data;
+            c++;
             p = p->next;
         }
-        c++;
         if(c == index)
         return p->data;
     }
