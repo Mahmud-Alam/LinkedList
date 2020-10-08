@@ -4,9 +4,14 @@
 
 Node* popAnyNode(int key, Node* head){
     Node* p = head;
-    if(p->next==NULL){
+    if(p==NULL){
+        cout<<endl;
+        return NULL;
+    }
+    else if(p->next==NULL){
         if(p->data == key){
             free(p);
+            cout<<endl<<"Pop is DONE. After pop, ";
             return NULL;
         }
         else{
@@ -18,11 +23,13 @@ Node* popAnyNode(int key, Node* head){
         if(p->data == key){
             Node* t = p->next;
             free(p);
+            cout<<endl<<"Pop is done!";
             return t;
         }
         else if(p->next->data == key){
             free(p->next);
             p->next = NULL;
+            cout<<endl<<"Pop is done!";
             return p;
         }
         else{
@@ -33,20 +40,23 @@ Node* popAnyNode(int key, Node* head){
     else{
         while(p->next->next!=NULL){
             if(p->data == key){
-            Node* t = p->next;
-            free(p);
-            return t;
+                Node* t = p->next;
+                free(p);
+                cout<<endl<<"Pop is done!";
+                return t;
             }
             else if(p->next->data == key){
                 Node* t = p->next->next;
                 free(p->next);
                 p->next  = t;
+                cout<<endl<<"Pop is done!";
                 return head;
             }
             else if(p->next->next->next==NULL){
                 if(p->next->next->data==key){
                     free(p->next->next);
                     p->next->next = NULL;
+                    cout<<endl<<"Pop is done!";
                     return head;
                 }
                 else{
@@ -83,10 +93,15 @@ int main(){
                 cout<<endl<<"Input a key, which you want to pop: ";cin>>key;
                 Node* newHead = popAnyNode(key,head);
                 head = newHead;
-                displayList(head);
+                if(head==NULL){
+                    cout<<"The Linked List is empty!"<<endl;
+                }
+                else
+                    displayList(head);
             }
             else
                 cout<<endl<<"Wrong keyword! Type again."<<endl;
+
             cout<<endl<<"Do you want to Pop any Node again?(If \"YES type 1\",If \"NO type 0\"): ";cin>>v;
         }
     }
