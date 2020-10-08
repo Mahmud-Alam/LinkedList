@@ -5,17 +5,20 @@
 
 Node* addTwoList(Node* head, Node* head2){
     Node* p = head;
-    while(p!=NULL){
-        p = p->next;
+    if(p==NULL)
+        head = head2;
+    else{
+        while(p->next!=NULL){
+            p = p->next;
+        }
+        p->next = head2;
     }
-    p->next = head2;
     return head;
 }
 int main(){
     int v;
     Node* head = NULL, *head2 = NULL;
-    cout<<endl<<"Take values for the 1st list: ";
-    cout<<endl<<"______________________________";
+    cout<<"___Take values for the 1st list___"<<endl;
     while(1){
         cout<<endl<<"Input a value(1024 to stop): ";cin>>v;
         if(v==1024)
@@ -26,8 +29,7 @@ int main(){
             displayList(head);
         }
     }
-    cout<<endl<<"Take values for the 2nd list: ";
-    cout<<endl<<"______________________________";
+    cout<<endl<<"___Take values for the 2nd list___ "<<endl;
     while(1){
         cout<<endl<<"Input a value(1024 to stop): ";cin>>v;
         if(v==1024)
