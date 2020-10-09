@@ -24,16 +24,34 @@ Node* numberToList(int value, Node* head){
     return node;
 }
 
+Node* displayList(Node* head){
+    cout<<endl<<"The LinkedList is: ";
+    while(head!=NULL){
+        if(head->next!=NULL) cout<<head->data<<" -> ";
+        else cout<<head->data;
+        head = head->next;
+    }
+    cout<<endl<<endl;
+}
+
 int main(){
     int v;
-    Node* head = NULL;
     while(1){
         cout<<"Input a value(1024 to stop): ";cin>>v;
+        Node* head = NULL;
         if(v==1024)
             break;
+        else if(v==0) cout<<endl<<"Only Zero cannot converted into list."<<endl<<endl;
         else{
-             int mod = v%10;
-                cout<<endl<<mod<<endl;
+            while(v>0){
+                int mod = v%10;
+                Node* newHead = numberToList(mod,head);
+                head = newHead;
+                //displayList(head);
+                v/=10;
+            }
+            cout<<endl<<"___Number converted to the Linked List___"<<endl;
+            displayList(head);
         }
     }
 }
