@@ -1,5 +1,26 @@
 #include"LinkedList.h"
 
+int listToNumber(Node* head){
+    int totalValue = 0;
+    if(head->next==NULL)
+        return head->data;
+    else{
+        totalValue = head->data;
+        while(head->next!=NULL){
+            int nextValueLength=0, nextValue = head->next->data;
+            while(nextValue>0){
+                nextValue/=10;
+                nextValueLength++;
+            }
+            int preValue = totalValue*pow(10,nextValueLength);
+            totalValue = preValue + head->next->data;
+
+            head = head->next;
+        }
+    }
+    return totalValue;
+}
+
 int main(){
     int v;
     Node* head = NULL;
@@ -12,5 +33,12 @@ int main(){
             head = newHead;
             displayList(head);
         }
+    }
+    if(head == NULL)
+        cout<<endl<<"List is empty!"<<endl;
+    else{
+        int number = listToNumber(head);
+        cout<<endl<<"___Linked list to Number is done___";
+        cout<<endl<<"The Number is: "<<number<<endl;
     }
 }
