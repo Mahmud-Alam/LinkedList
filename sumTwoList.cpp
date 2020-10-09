@@ -4,7 +4,26 @@
 
 
 Node* sumTwoList(Node* head1, Node* head2){
+    Node* p = head1;
+    Node* q = head2;
+    if(p==NULL&&q==NULL){
+        return NULL;
+    }
+    else if(p==NULL||q==NULL){
+        if(p==NULL)
+            return q;
+        else return p;
+    }
+    else if(p->next==NULL&&q->next==NULL){
+        Node* node = NULL;
+        int sum = p->data + q->data;
+        int mod = sum%10;
+        sum/=10;
+        Node* newNode = createLinkedList(sum,node);
+        createLinkedList(mod,newNode);
 
+        return newNode;
+    }
 }
 
 int main(){
@@ -33,4 +52,7 @@ int main(){
             displayList(head2);
         }
     }
+
+    cout<<endl<<"Summation of two Linked List is done!"<<endl;
+    displayList(sumTwoList(head1,head2));
 }
