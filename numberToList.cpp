@@ -24,7 +24,7 @@ Node* numberToList(int value, Node* head){
     return node;
 }
 
-Node* displayList(Node* head){
+void displayList(Node* head){
     cout<<endl<<"The LinkedList is: ";
     while(head!=NULL){
         if(head->next!=NULL) cout<<head->data<<" -> ";
@@ -42,6 +42,10 @@ int main(){
         if(v==1024)
             break;
         else if(v==0) cout<<endl<<"Only Zero cannot converted into list."<<endl<<endl;
+        else if(v>=2147483647){
+            cout<<endl<<"Integer value cannot support this large Number! Try some small Numbers."<<endl;
+            break;
+        }
         else{
             while(v>0){
                 int mod = v%10;
