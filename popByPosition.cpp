@@ -33,33 +33,34 @@ Node* popByPosition(int pos, Node*head){
             return head;
         }
     }
-    while(p->next->next!=NULL){
-        if(pos == c){
-            Node* temp = p->next;
-            free(p);
-            return temp;
+    else{
+        while(p->next->next!=NULL){
+            c++;
+            if(pos == 0){
+                Node* temp = p->next;
+                free(p);
+                return temp;
+            }
+            else if(pos == c){
+                Node* temp = p->next->next;
+                free(p->next);
+                p->next = temp;
+
+                return head;
+            }
+            else{
+                p = p->next;
+            }
         }
         c++;
         if(pos == c){
-            Node* temp = p->next->next;
             free(p->next);
-            p->next = temp;
-
+            p->next = NULL;
             return head;
         }
         else{
-            p = p->next;
-        }
-
-    c++;
-    if(pos = c){
-        free(p->next);
-        p->next = NULL;
-        return head;
-    }
-    else{
-        cout<<endl<<"Position is not found!"<<endl;
-        return head;
+            cout<<endl<<"Position is not found!"<<endl;
+            return head;
         }
     }
 }
