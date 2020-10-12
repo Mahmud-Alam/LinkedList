@@ -12,7 +12,7 @@ Node* popByPosition(int pos, Node*head){
             return NULL;
         }
         else
-            cout<<endl<<"Position was not found!"<<endl;
+            cout<<endl<<"Position is not found!"<<endl;
     }
     else if(p->next->next == NULL){
         if(pos==c){
@@ -25,9 +25,33 @@ Node* popByPosition(int pos, Node*head){
             return p;
         }
         else
-            cout<<endl<<"Position was not found!"<<endl;
+            cout<<endl<<"Position is not found!"<<endl;
     }
     while(p->next->next!=NULL){
+        if(pos == c){
+            Node* temp = p->next;
+            free(p);
+            return temp;
+        }
+        c++;
+        else if(pos == c){
+            Node* temp = p->next->next;
+            free(p->next);
+            p->next = temp;
 
+            return head;
+        }
+        else{
+            p = p->next;
+        }
+
+    c++;
+    if(pos = c){
+        free(p->next);
+        p->next = NULL;
+        return head;
+    }
+    else
+        cout<<endl<<"Position is not found!"<<endl;
     }
 }
