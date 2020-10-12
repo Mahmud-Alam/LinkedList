@@ -14,7 +14,7 @@ Node* popByPosition(int pos, Node*head){
         }
         else{
             cout<<endl<<"Position is not found!"<<endl;
-            return NULL;
+            return head;
         }
     }
     else if(p->next->next == NULL){
@@ -25,11 +25,12 @@ Node* popByPosition(int pos, Node*head){
         }
         else if(pos==1){
             free(p->next);
+            p->next = NULL;
             return p;
         }
         else{
             cout<<endl<<"Position is not found!"<<endl;
-            return NULL;
+            return head;
         }
     }
     while(p->next->next!=NULL){
@@ -58,7 +59,7 @@ Node* popByPosition(int pos, Node*head){
     }
     else{
         cout<<endl<<"Position is not found!"<<endl;
-        return NULL;
+        return head;
         }
     }
 }
@@ -78,20 +79,26 @@ int main(){
     if(head == NULL)
         cout<<endl<<"List is empty!"<<endl;
     else{
-        cout<<endl<<"Do you want to pop any node by index number?(If YES type 1, if NO type 0)";cin>>v;
+        cout<<endl<<"Do you want to pop any node by index number?(If YES type 1, if NO type 0): ";cin>>v;
         while(1){
             if(v==0)
                 break;
             else if(v==1){
-                cout<<endl<<"Input a index: ";cin>>pos;
-                Node* newHead = popByPosition(pos,head);
-                if(head!=NULL)
-                    displayList(head);
+                if(head == NULL){
+                    cout<<endl<<"List is empty! Pop is not possible."<<endl;
+                }
+                else{
+                    cout<<endl<<"Input a index: ";cin>>pos;
+                    Node* newHead = popByPosition(pos,head);
+                    head = newHead;
+                    if(head!=NULL)
+                        displayList(head);
+                }
             }
             else{
                 cout<<endl<<"Wrong keyword! Type again."<<endl;
             }
-            cout<<endl<<"Do you want to pop any node by index number Again?(If YES type 1, If NO type 0)";cin>>v;
+            cout<<endl<<"Do you want to pop any node by index number Again?(If YES type 1, If NO type 0): ";cin>>v;
         }
     }
 }
