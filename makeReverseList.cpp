@@ -4,14 +4,16 @@
 
 
 Node* makeReverseList(Node* head){
-    if(head!=NULL && head->next!=NULL)
-        return head;
-    Node* rest = makeReverseList(head->next);
-
-    head->next->next = head;
-    head->next = NULL;
-
-    return rest;
+    Node* p = head;
+    Node* prev = NULL, *next = NULL;
+    while(p!=NULL){
+        next = p->next;
+        p->next = prev;
+        prev = p;
+        p = next;
+    }
+    head = prev;
+    return head;
 }
 
 int main(){
@@ -30,7 +32,8 @@ int main(){
     if(head == NULL)
         cout<<endl<<"List is empty!"<<endl;
     else{
-        head = makeReverseList(head);
-        displayList(head);
+        Node* newHead = makeReverseList(head);
+        cout<<endl<<endl<<"_____After Reverse_____"<<endl;
+        displayList(newHead);
     }
 }
